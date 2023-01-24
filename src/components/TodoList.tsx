@@ -68,7 +68,7 @@ const TodoList: React.FC<{
             
           ))}
           <div className=" text-[12px] tablet:text-[14px] font-normal leading-3 tablet:leading-[14px]  text-[#9495A5] dark:text-[#5B5E7E] px-5 py-4 flex justify-between ">
-            <span>5 minutes ago</span>
+            <span>{todos.length} items left</span>
           <div className="bg-white dark:bg-darkCover rounded-md  shadow-[0_35px_50px_-15px_rgba(194,195,214,0.5)] dark:shadow-[0_35px_50px_-15px_rgba(0,0,0,0.5)] hidden tablet:block">
           <div className="text-[14px] font-bold leading-[18px] flex flex-row gap-2 justify-between text-[#9495A5] dark:text-[#5B5E7E]">
       <FilterButtons onFilter={onFilter} />
