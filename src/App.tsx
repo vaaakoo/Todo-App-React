@@ -1,8 +1,13 @@
+// import 'react-beautiful-dnd/dist/react-beautiful-dnd.css';
 import React, { useState } from "react";
-import TodoForm from './components/TodoForm'
-import TodoList from './components/TodoList'
-import ClearButtons from './components/ClearButtons'
-import FilterButtons from './components/FilterButtons'
+import TodoForm from "./components/TodoForm";
+import TodoList from "./components/TodoList";
+import iconMoon from "./assets/iconMoon.svg";
+import iconsun from "./assets/iconsun.svg";
+import Header from "./components/Header";
+import iconCheck from "./images/icon-check.svg"
+import iconCross from "./images/icon-cross.svg"
+
 
 
 
@@ -12,6 +17,7 @@ export interface Todo {
 }
 
 const App: React.FC = () => {
+  const [darkMode, setDarkMode] = useState(false);
   const [todos, setTodos] = useState<Todo[]>([]);
   const [filter, setFilter] = useState<string>("all");
 
@@ -39,24 +45,46 @@ const App: React.FC = () => {
     }
   };
 
+  const handleDarkModeToggle = () => {
+    setDarkMode(!darkMode);
+  };
+
   return (
-    <div>
-      <TodoForm onSubmit={handleSubmit} />
-      <FilterButtons onFilter={handleFilter} />
-      <ClearButtons onClear={handleClear} />
-      <TodoList
-        todos={todos.filter((todo) => {
-          if (filter === "all") {
-            return true;
-          } else if (filter === "completed") {
-            return todo.completed;
-          } else {
-            return !todo.completed;
-          }
-        })}
-        onComplete={handleComplete}
-        onRemove={handleRemove}
-      />
+    <div className={`${darkMode && "dark"}`}>
+      <div className="bg-[#F2F2F2] relative dark:bg-backgroundDark duration-500 h-screen">
+      <header className="header">
+        <div className="flex flex-col mx-auto mt-12">
+          {/*dark mode - Header  */}
+          <Header
+            darkMode={darkMode}
+            handleDarkModeToggle={handleDarkModeToggle}
+            iconsun={iconsun}
+            iconMoon={iconMoon}
+          />
+
+          <TodoForm onSubmit={handleSubmit} />
+          
+          <TodoList
+            todos={todos.filter((todo) => {
+              if (filter === "all") {
+                return true;
+              } else if (filter === "completed") {
+                return todo.completed;
+              } else {
+                return !todo.completed;
+              }
+            })}
+            onComplete={handleComplete}
+            onRemove={handleRemove}
+            onFilter={handleFilter}
+            onClear={handleClear}
+            iconCheck={iconCheck}
+            iconCross={iconCross}
+          />
+          </div>
+          </header>
+        
+      </div>
     </div>
   );
 };

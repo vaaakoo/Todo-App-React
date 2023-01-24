@@ -1,57 +1,36 @@
-@import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Josefin+Sans");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 body {
-  margin-left: 20px;
-  height: 100vh;
-  font-size: 15px;
-  font-weight: 400;
-  line-height: 25px;
-  letter-spacing: 0px;
-  text-align: center;
-  font-family: "Space Mono", monospace;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 18px;
+  box-sizing: border-box;
+  height: 100%;
 }
 
-form {
-  display: flex;
-  align-items: center;
-  margin-bottom: 20px;
+.header {
+  background-size: cover;
+  background-image: url("./assets/bg-mobile-light.jpg");
+  position: absolute;
+  height: 200px;
+  width: 100%;
 }
 
-label {
-  margin-right: 10px;
+.dark .header {
+  background-image: url("./assets/bg-mobile-dark.jpg");
 }
 
-input[type="text"] {
-  padding: 10px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-}
+@media (min-width: 640px) {
+  .header {
+    background-image: url("./assets/bg-desktop-light.jpg");
+    background-size: cover;
+    height: 300px;
+  }
 
-button {
-  padding: 10px 20px;
-  border-radius: 5px;
-  background-color: #4caf50;
-  color: blue;
-  border: none;
-  cursor: pointer;
-}
-
-ul {
-  list-style: none;
-}
-
-li {
-  display: flex;
-  column-gap: 8px;
-  align-items: center;
-  margin-bottom: 10px;
-}
-
-.completed {
-  text-decoration: line-through;
-  color: #ccc;
+  .dark .header {
+    background-image: url("./assets/bg-desktop-dark.jpg");
+  }
 }
