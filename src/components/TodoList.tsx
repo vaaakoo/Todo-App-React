@@ -22,7 +22,7 @@ const TodoList: React.FC<{
   iconCross,
 }) => {
   return (
-    <div className="todoList flex flex-col gap-4 mt-4 desktop:mt-6 mx-auto w-[327px] desktop:w-[540px]">
+    <div className="todoList flex flex-col gap-4 mt-4 tablet:mt-6 mx-auto w-[327px] tablet:w-[540px]">
       <div className="flex flex-col bg-white dark:bg-darkCover rounded-md shadow-[0_35px_50px_-15px_rgba(194,195,214,0.5)] dark:shadow-[0_35px_50px_-15px_rgba(0,0,0,0.5)]">
         <ul >
           {todos.map((todo, i) => (
@@ -36,21 +36,21 @@ const TodoList: React.FC<{
                 {todo.completed ? (
                   <div
                     onClick={() => onComplete(i)}
-                    className="bg-gradient-to-r from-[#55DDFF] to-[#C058F3] form-checkbox w-5 h-5 desktop:w-6 desktop:h-6 rounded-full flex p-1"
+                    className="bg-gradient-to-r from-[#55DDFF] to-[#C058F3] form-checkbox w-5 h-5 tablet:w-6 tablet:h-6 rounded-full flex p-1"
                   >
                     <img src={iconCheck} alt="iconCheck" />
                   </div>
                 ) : (
                   <div
                     onClick={() => onComplete(i)}
-                    className="border dark:border-borderGrayDark hover:bg-gradient-to-r from-[#55DDFF] to-[#C058F3] focus:outline-none form-checkbox p-[1px] w-5 h-5 desktop:w-6 desktop:h-6 rounded-full flex cursor-pointer "
+                    className="border dark:border-borderGrayDark hover:bg-gradient-to-r from-[#55DDFF] to-[#C058F3] focus:outline-none form-checkbox p-[1px] w-5 h-5 tablet:w-6 tablet:h-6 rounded-full flex cursor-pointer "
                   >
                     <div className="bg-white dark:bg-darkCover w-full rounded-full focus:outline-none"></div>
                   </div>
                 )}
                 <label
                   onClick={() => onComplete(i)}
-                  className={`self-center text-[12px] text-lightGrayText dark:text-darkGrayText leading-[12px] desktop:text-[18px] desktop:leading-[18px] focus:outline-none cursor-pointer ${
+                  className={`self-center text-[12px] text-lightGrayText dark:text-darkGrayText leading-[12px] tablet:text-[18px] tablet:leading-[18px] focus:outline-none cursor-pointer ${
                     todo.completed && "line-through dark:text-[#4D5067] text-[#D1D2DA]"
                   }`}
                 >
@@ -61,15 +61,15 @@ const TodoList: React.FC<{
                 <img
                   src={iconCross}
                   alt="iconCross"
-                  className="w-4 desktop:w-[18px] invisible group/edit group-hover/item:visible"
+                  className="w-4 tablet:w-[18px] invisible group/edit group-hover/item:visible"
                 />
               </button>
             </li>
             
           ))}
-          <div className=" text-[12px] desktop:text-[14px] font-normal leading-3 desktop:leading-[14px]  text-[#9495A5] dark:text-[#5B5E7E] px-5 py-4 flex justify-between ">
+          <div className=" text-[12px] tablet:text-[14px] font-normal leading-3 tablet:leading-[14px]  text-[#9495A5] dark:text-[#5B5E7E] px-5 py-4 flex justify-between ">
             <span>5 minutes ago</span>
-          <div className="bg-white dark:bg-darkCover rounded-md  shadow-[0_35px_50px_-15px_rgba(194,195,214,0.5)] dark:shadow-[0_35px_50px_-15px_rgba(0,0,0,0.5)] hidden desktop:block">
+          <div className="bg-white dark:bg-darkCover rounded-md  shadow-[0_35px_50px_-15px_rgba(194,195,214,0.5)] dark:shadow-[0_35px_50px_-15px_rgba(0,0,0,0.5)] hidden tablet:block">
           <div className="text-[14px] font-bold leading-[18px] flex flex-row gap-2 justify-between text-[#9495A5] dark:text-[#5B5E7E]">
       <FilterButtons onFilter={onFilter} />
       </div>
@@ -80,7 +80,7 @@ const TodoList: React.FC<{
         
       </div>
      
-      <div className="bg-white dark:bg-darkCover rounded-md  shadow-[0_35px_50px_-15px_rgba(194,195,214,0.5)] dark:shadow-[0_35px_50px_-15px_rgba(0,0,0,0.5)] desktop:hidden ">
+      <div className="bg-white dark:bg-darkCover rounded-md  shadow-[0_35px_50px_-15px_rgba(194,195,214,0.5)] dark:shadow-[0_35px_50px_-15px_rgba(0,0,0,0.5)] tablet:hidden ">
       <div className="flex justify-around mx-auto text-[14px] w-full font-bold leading-[14px]  text-[#9495A5] dark:text-[#5B5E7E] px-5 py-4">
       <FilterButtons onFilter={onFilter} />
       </div>
